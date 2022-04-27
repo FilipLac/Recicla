@@ -1,7 +1,7 @@
 Database for instock items --> app
     Assigned
         Idea 1: Name, number of items, location of that item (color = container).
-        Idea 2: Name / Type / Description / Number (Hex) and color / Items in stock (number) / Price
+        Idea 2: Name / Type / Description / Number and color of box / Items in stock (number) / Price
             Categorized - Laptop, Desktop, Other + Option for all
 
     Own Ideas
