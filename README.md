@@ -1,2 +1,2 @@
-# Recycla
-Website for erasmus project - Recycla PC
+# Recicla
+Website for erasmus project - Recicla PC
