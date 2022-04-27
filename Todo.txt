@@ -1,0 +1,7 @@
+Database for instock items --> app
+    Name, number of items.
+
+Website
+    translation from potugese to english
+
+One week build it, next week testing...
