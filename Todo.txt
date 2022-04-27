@@ -1,5 +1,5 @@
 Database for instock items --> app
-    Name, number of items.
+    Name, number of items, location of that item (color = container).
 
 Website
     translation from potugese to english
