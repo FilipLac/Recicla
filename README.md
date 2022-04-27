@@ -10,3 +10,4 @@ git add -- add changes for commit
 git commit -- comment changes and prepaire them for push
 git push -- upload changes to github
 ```
+![Git explanation of terms](assets/GitExplanation.png)
