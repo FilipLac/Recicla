@@ -1,2 +1,0 @@
-This document serves as a list of made changes, ideas and W.I.P. tasks on the project.
-
