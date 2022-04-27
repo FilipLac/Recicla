@@ -1,7 +1,13 @@
 Database for instock items --> app
-    Name, number of items, location of that item (color = container).
+    Assigned
+        Idea 1: Name, number of items, location of that item (color = container).
+        Idea 2: Name / Type / Description / Number (Hex) and color / Items in stock (number) / Price
+            Categorized - Laptop, Desktop, Other + Option for all
+
+    Own Ideas
+        Translation ?
 
 Website
-    translation from potugese to english
+    translation from Portuguese to English
 
 One week build it, next week testing...
