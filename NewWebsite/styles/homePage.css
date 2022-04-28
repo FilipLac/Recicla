@@ -1,8 +1,4 @@
 .homePage {
-  background-image: url('../images/pexels-karolina-grabowska-6028535.jpg');
-  background-repeat: no-repeat;
-  object-position: center;
-  object-fit: contain;
   padding-top: 150px;
 }
 
@@ -23,7 +19,7 @@
 .qualitiesContainer section {
   min-height: 500px;
   width: 400px;
-  background-color: rgba(255, 255, 255, 0.24);
+  background-color: rgba(78, 78, 78, 0.056);
   border-radius: 5px;
   padding: 30px;
   font-size: 1.5rem;
