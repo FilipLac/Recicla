@@ -1,0 +1,28 @@
+.main-navigation {
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  font-size: 1.6rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background: rgb(85, 238, 24);
+  font-size: 1.7rem;
+}
+
+.main-navigation ul {
+  list-style: none;
+  display: flex;
+}
+
+.main-navigation ul li {
+  margin: 0 25px;
+}
+
+.site-logo {
+  font-family: fantasy;
+  font-size: 2rem;
+}
