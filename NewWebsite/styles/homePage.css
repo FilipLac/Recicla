@@ -1,0 +1,10 @@
+.homePage {
+  background-image: url('../images/pexels-karolina-grabowska-6028535.jpg');
+  background-repeat: no-repeat;
+  object-position: center;
+  object-fit: contain;
+}
+
+.homePage > header {
+  margin-bottom: 30px;
+}

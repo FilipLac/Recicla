@@ -5,6 +5,9 @@
   align-items: baseline;
   justify-content: space-around;
   font-size: 1.6rem;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 .main-navigation ul {
