@@ -8,6 +8,8 @@
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 100;
+  background: rgb(101, 195, 61);
 }
 
 .main-navigation ul {
@@ -17,4 +19,9 @@
 
 .main-navigation ul li {
   margin: 0 25px;
+}
+
+.site-logo {
+  font-family: fantasy;
+  font-size: 2rem;
 }
