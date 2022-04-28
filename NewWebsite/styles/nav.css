@@ -2,7 +2,16 @@
   width: 100%;
   padding: 25px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-around;
   font-size: 1.6rem;
+}
+
+.main-navigation ul {
+  list-style: none;
+  display: flex;
+}
+
+.main-navigation ul li {
+  margin: 0 25px;
 }
