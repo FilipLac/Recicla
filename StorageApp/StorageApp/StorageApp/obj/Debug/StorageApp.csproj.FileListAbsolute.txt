@@ -9,3 +9,4 @@ C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\o
 C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.csproj.CoreCompileInputs.cache
 C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.exe
 C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.pdb
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\bin\Debug\data.accdb

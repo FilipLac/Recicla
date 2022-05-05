@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bSearch = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -39,23 +40,47 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbQuantity = new System.Windows.Forms.ComboBox();
-            this.cbType = new System.Windows.Forms.ComboBox();
-            this.cbAge = new System.Windows.Forms.ComboBox();
-            this.cbColor = new System.Windows.Forms.ComboBox();
-            this.cbBoxNum = new System.Windows.Forms.ComboBox();
-            this.cbBoxColor = new System.Windows.Forms.ComboBox();
-            this.cbPrice = new System.Windows.Forms.ComboBox();
-            this.cbName = new System.Windows.Forms.ComboBox();
-            this.cbDesc = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFoaie = new System.Windows.Forms.DataGridView();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbType = new System.Windows.Forms.TextBox();
+            this.tbDesc = new System.Windows.Forms.TextBox();
+            this.tbBoxCol = new System.Windows.Forms.TextBox();
+            this.tbBoxNum = new System.Windows.Forms.TextBox();
+            this.tbQuant = new System.Windows.Forms.TextBox();
+            this.tbPrice = new System.Windows.Forms.TextBox();
+            this.tbCol = new System.Windows.Forms.TextBox();
+            this.tbAge = new System.Windows.Forms.TextBox();
+            this.dataDataSet = new StorageApp.dataDataSet();
+            this.foaieImportAndSortHereBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foaie___import_and_sort_hereTableAdapter = new StorageApp.dataDataSetTableAdapters.Foaie___import_and_sort_hereTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bOXCOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bOXNUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qUANTITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aGEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foaieImportAndSortHereBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.tbAge);
+            this.panel1.Controls.Add(this.tbCol);
+            this.panel1.Controls.Add(this.tbPrice);
+            this.panel1.Controls.Add(this.tbQuant);
+            this.panel1.Controls.Add(this.tbBoxNum);
+            this.panel1.Controls.Add(this.tbBoxCol);
+            this.panel1.Controls.Add(this.tbDesc);
+            this.panel1.Controls.Add(this.tbType);
+            this.panel1.Controls.Add(this.tbName);
             this.panel1.Controls.Add(this.bSearch);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label4);
@@ -66,15 +91,6 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbQuantity);
-            this.panel1.Controls.Add(this.cbType);
-            this.panel1.Controls.Add(this.cbAge);
-            this.panel1.Controls.Add(this.cbColor);
-            this.panel1.Controls.Add(this.cbBoxNum);
-            this.panel1.Controls.Add(this.cbBoxColor);
-            this.panel1.Controls.Add(this.cbPrice);
-            this.panel1.Controls.Add(this.cbName);
-            this.panel1.Controls.Add(this.cbDesc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -185,106 +201,187 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "DESCRIPTION";
             // 
-            // cbQuantity
+            // dgvFoaie
             // 
-            this.cbQuantity.FormattingEnabled = true;
-            this.cbQuantity.Location = new System.Drawing.Point(12, 283);
-            this.cbQuantity.Name = "cbQuantity";
-            this.cbQuantity.Size = new System.Drawing.Size(121, 21);
-            this.cbQuantity.TabIndex = 0;
+            this.dgvFoaie.AutoGenerateColumns = false;
+            this.dgvFoaie.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgvFoaie.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFoaie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFoaie.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.nAMEDataGridViewTextBoxColumn,
+            this.tYPEDataGridViewTextBoxColumn,
+            this.dESCRIPTIONDataGridViewTextBoxColumn,
+            this.bOXCOLORDataGridViewTextBoxColumn,
+            this.bOXNUMBERDataGridViewTextBoxColumn,
+            this.qUANTITYDataGridViewTextBoxColumn,
+            this.pRICEDataGridViewTextBoxColumn,
+            this.cOLORDataGridViewTextBoxColumn,
+            this.aGEDataGridViewTextBoxColumn});
+            this.dgvFoaie.DataSource = this.foaieImportAndSortHereBindingSource;
+            this.dgvFoaie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFoaie.GridColor = System.Drawing.Color.LightSkyBlue;
+            this.dgvFoaie.Location = new System.Drawing.Point(149, 0);
+            this.dgvFoaie.Name = "dgvFoaie";
+            this.dgvFoaie.Size = new System.Drawing.Size(1059, 555);
+            this.dgvFoaie.TabIndex = 1;
             // 
-            // cbType
+            // tbName
             // 
-            this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(12, 83);
-            this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(121, 21);
-            this.cbType.TabIndex = 0;
+            this.tbName.Location = new System.Drawing.Point(13, 29);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(120, 20);
+            this.tbName.TabIndex = 2;
             // 
-            // cbAge
+            // tbType
             // 
-            this.cbAge.FormattingEnabled = true;
-            this.cbAge.Location = new System.Drawing.Point(12, 433);
-            this.cbAge.Name = "cbAge";
-            this.cbAge.Size = new System.Drawing.Size(121, 21);
-            this.cbAge.TabIndex = 0;
+            this.tbType.Location = new System.Drawing.Point(12, 78);
+            this.tbType.Name = "tbType";
+            this.tbType.Size = new System.Drawing.Size(120, 20);
+            this.tbType.TabIndex = 2;
             // 
-            // cbColor
+            // tbDesc
             // 
-            this.cbColor.FormattingEnabled = true;
-            this.cbColor.Location = new System.Drawing.Point(12, 383);
-            this.cbColor.Name = "cbColor";
-            this.cbColor.Size = new System.Drawing.Size(121, 21);
-            this.cbColor.TabIndex = 0;
+            this.tbDesc.Location = new System.Drawing.Point(12, 128);
+            this.tbDesc.Name = "tbDesc";
+            this.tbDesc.Size = new System.Drawing.Size(120, 20);
+            this.tbDesc.TabIndex = 2;
             // 
-            // cbBoxNum
+            // tbBoxCol
             // 
-            this.cbBoxNum.FormattingEnabled = true;
-            this.cbBoxNum.Location = new System.Drawing.Point(12, 233);
-            this.cbBoxNum.Name = "cbBoxNum";
-            this.cbBoxNum.Size = new System.Drawing.Size(121, 21);
-            this.cbBoxNum.TabIndex = 0;
+            this.tbBoxCol.Location = new System.Drawing.Point(12, 178);
+            this.tbBoxCol.Name = "tbBoxCol";
+            this.tbBoxCol.Size = new System.Drawing.Size(120, 20);
+            this.tbBoxCol.TabIndex = 2;
             // 
-            // cbBoxColor
+            // tbBoxNum
             // 
-            this.cbBoxColor.FormattingEnabled = true;
-            this.cbBoxColor.Location = new System.Drawing.Point(12, 183);
-            this.cbBoxColor.Name = "cbBoxColor";
-            this.cbBoxColor.Size = new System.Drawing.Size(121, 21);
-            this.cbBoxColor.TabIndex = 0;
+            this.tbBoxNum.Location = new System.Drawing.Point(12, 228);
+            this.tbBoxNum.Name = "tbBoxNum";
+            this.tbBoxNum.Size = new System.Drawing.Size(120, 20);
+            this.tbBoxNum.TabIndex = 2;
             // 
-            // cbPrice
+            // tbQuant
             // 
-            this.cbPrice.FormattingEnabled = true;
-            this.cbPrice.Location = new System.Drawing.Point(12, 333);
-            this.cbPrice.Name = "cbPrice";
-            this.cbPrice.Size = new System.Drawing.Size(121, 21);
-            this.cbPrice.TabIndex = 0;
+            this.tbQuant.Location = new System.Drawing.Point(12, 278);
+            this.tbQuant.Name = "tbQuant";
+            this.tbQuant.Size = new System.Drawing.Size(120, 20);
+            this.tbQuant.TabIndex = 2;
             // 
-            // cbName
+            // tbPrice
             // 
-            this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(12, 33);
-            this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(121, 21);
-            this.cbName.TabIndex = 0;
+            this.tbPrice.Location = new System.Drawing.Point(12, 328);
+            this.tbPrice.Name = "tbPrice";
+            this.tbPrice.Size = new System.Drawing.Size(120, 20);
+            this.tbPrice.TabIndex = 2;
             // 
-            // cbDesc
+            // tbCol
             // 
-            this.cbDesc.FormattingEnabled = true;
-            this.cbDesc.Location = new System.Drawing.Point(12, 133);
-            this.cbDesc.Name = "cbDesc";
-            this.cbDesc.Size = new System.Drawing.Size(121, 21);
-            this.cbDesc.TabIndex = 0;
+            this.tbCol.Location = new System.Drawing.Point(12, 378);
+            this.tbCol.Name = "tbCol";
+            this.tbCol.Size = new System.Drawing.Size(120, 20);
+            this.tbCol.TabIndex = 2;
             // 
-            // dataGridView1
+            // tbAge
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSkyBlue;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.Color.LightSkyBlue;
-            this.dataGridView1.Location = new System.Drawing.Point(149, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1046, 555);
-            this.dataGridView1.TabIndex = 1;
+            this.tbAge.Location = new System.Drawing.Point(12, 428);
+            this.tbAge.Name = "tbAge";
+            this.tbAge.Size = new System.Drawing.Size(120, 20);
+            this.tbAge.TabIndex = 2;
+            // 
+            // dataDataSet
+            // 
+            this.dataDataSet.DataSetName = "dataDataSet";
+            this.dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // foaieImportAndSortHereBindingSource
+            // 
+            this.foaieImportAndSortHereBindingSource.DataMember = "Foaie - import and sort here";
+            this.foaieImportAndSortHereBindingSource.DataSource = this.dataDataSet;
+            // 
+            // foaie___import_and_sort_hereTableAdapter
+            // 
+            this.foaie___import_and_sort_hereTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // nAMEDataGridViewTextBoxColumn
+            // 
+            this.nAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.HeaderText = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.Name = "nAMEDataGridViewTextBoxColumn";
+            // 
+            // tYPEDataGridViewTextBoxColumn
+            // 
+            this.tYPEDataGridViewTextBoxColumn.DataPropertyName = "TYPE";
+            this.tYPEDataGridViewTextBoxColumn.HeaderText = "TYPE";
+            this.tYPEDataGridViewTextBoxColumn.Name = "tYPEDataGridViewTextBoxColumn";
+            // 
+            // dESCRIPTIONDataGridViewTextBoxColumn
+            // 
+            this.dESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPTION";
+            this.dESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "DESCRIPTION";
+            this.dESCRIPTIONDataGridViewTextBoxColumn.Name = "dESCRIPTIONDataGridViewTextBoxColumn";
+            // 
+            // bOXCOLORDataGridViewTextBoxColumn
+            // 
+            this.bOXCOLORDataGridViewTextBoxColumn.DataPropertyName = "BOX COLOR";
+            this.bOXCOLORDataGridViewTextBoxColumn.HeaderText = "BOX COLOR";
+            this.bOXCOLORDataGridViewTextBoxColumn.Name = "bOXCOLORDataGridViewTextBoxColumn";
+            // 
+            // bOXNUMBERDataGridViewTextBoxColumn
+            // 
+            this.bOXNUMBERDataGridViewTextBoxColumn.DataPropertyName = "BOX NUMBER";
+            this.bOXNUMBERDataGridViewTextBoxColumn.HeaderText = "BOX NUMBER";
+            this.bOXNUMBERDataGridViewTextBoxColumn.Name = "bOXNUMBERDataGridViewTextBoxColumn";
+            // 
+            // qUANTITYDataGridViewTextBoxColumn
+            // 
+            this.qUANTITYDataGridViewTextBoxColumn.DataPropertyName = "QUANTITY";
+            this.qUANTITYDataGridViewTextBoxColumn.HeaderText = "QUANTITY";
+            this.qUANTITYDataGridViewTextBoxColumn.Name = "qUANTITYDataGridViewTextBoxColumn";
+            // 
+            // pRICEDataGridViewTextBoxColumn
+            // 
+            this.pRICEDataGridViewTextBoxColumn.DataPropertyName = "PRICE";
+            this.pRICEDataGridViewTextBoxColumn.HeaderText = "PRICE";
+            this.pRICEDataGridViewTextBoxColumn.Name = "pRICEDataGridViewTextBoxColumn";
+            // 
+            // cOLORDataGridViewTextBoxColumn
+            // 
+            this.cOLORDataGridViewTextBoxColumn.DataPropertyName = "COLOR";
+            this.cOLORDataGridViewTextBoxColumn.HeaderText = "COLOR";
+            this.cOLORDataGridViewTextBoxColumn.Name = "cOLORDataGridViewTextBoxColumn";
+            // 
+            // aGEDataGridViewTextBoxColumn
+            // 
+            this.aGEDataGridViewTextBoxColumn.DataPropertyName = "AGE";
+            this.aGEDataGridViewTextBoxColumn.HeaderText = "AGE";
+            this.aGEDataGridViewTextBoxColumn.Name = "aGEDataGridViewTextBoxColumn";
             // 
             // formStorageApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1195, 555);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1208, 555);
+            this.Controls.Add(this.dgvFoaie);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "formStorageApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StorageApp";
+            this.Load += new System.EventHandler(this.formStorageApp_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foaieImportAndSortHereBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,22 +393,35 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbType;
-        private System.Windows.Forms.ComboBox cbBoxColor;
-        private System.Windows.Forms.ComboBox cbName;
-        private System.Windows.Forms.ComboBox cbDesc;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbQuantity;
-        private System.Windows.Forms.ComboBox cbAge;
-        private System.Windows.Forms.ComboBox cbColor;
-        private System.Windows.Forms.ComboBox cbBoxNum;
-        private System.Windows.Forms.ComboBox cbPrice;
         private System.Windows.Forms.Button bSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFoaie;
+        private System.Windows.Forms.TextBox tbAge;
+        private System.Windows.Forms.TextBox tbCol;
+        private System.Windows.Forms.TextBox tbPrice;
+        private System.Windows.Forms.TextBox tbQuant;
+        private System.Windows.Forms.TextBox tbBoxNum;
+        private System.Windows.Forms.TextBox tbBoxCol;
+        private System.Windows.Forms.TextBox tbDesc;
+        private System.Windows.Forms.TextBox tbType;
+        private System.Windows.Forms.TextBox tbName;
+        private dataDataSet dataDataSet;
+        private System.Windows.Forms.BindingSource foaieImportAndSortHereBindingSource;
+        private dataDataSetTableAdapters.Foaie___import_and_sort_hereTableAdapter foaie___import_and_sort_hereTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tYPEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPTIONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bOXCOLORDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bOXNUMBERDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qUANTITYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pRICEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cOLORDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aGEDataGridViewTextBoxColumn;
     }
 }
 

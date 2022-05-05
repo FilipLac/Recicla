@@ -16,5 +16,12 @@ namespace StorageApp
         {
             InitializeComponent();
         }
+
+        private void formStorageApp_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataDataSet._Foaie___import_and_sort_here' table. You can move, or remove it, as needed.
+            this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+
+        }
     }
 }
