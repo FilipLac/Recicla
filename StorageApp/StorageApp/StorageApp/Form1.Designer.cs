@@ -30,6 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbAge = new System.Windows.Forms.TextBox();
+            this.tbCol = new System.Windows.Forms.TextBox();
+            this.tbPrice = new System.Windows.Forms.TextBox();
+            this.tbQuant = new System.Windows.Forms.TextBox();
+            this.tbBoxNum = new System.Windows.Forms.TextBox();
+            this.tbBoxCol = new System.Windows.Forms.TextBox();
+            this.tbDesc = new System.Windows.Forms.TextBox();
+            this.tbType = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.bSearch = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,32 +50,23 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvFoaie = new System.Windows.Forms.DataGridView();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.tbType = new System.Windows.Forms.TextBox();
-            this.tbDesc = new System.Windows.Forms.TextBox();
-            this.tbBoxCol = new System.Windows.Forms.TextBox();
-            this.tbBoxNum = new System.Windows.Forms.TextBox();
-            this.tbQuant = new System.Windows.Forms.TextBox();
-            this.tbPrice = new System.Windows.Forms.TextBox();
-            this.tbCol = new System.Windows.Forms.TextBox();
-            this.tbAge = new System.Windows.Forms.TextBox();
-            this.dataDataSet = new StorageApp.dataDataSet();
             this.foaieImportAndSortHereBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataDataSet = new StorageApp.dataDataSet();
             this.foaie___import_and_sort_hereTableAdapter = new StorageApp.dataDataSetTableAdapters.Foaie___import_and_sort_hereTableAdapter();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bOXCOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bOXNUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qUANTITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aGEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qUANTITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bOXNUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bOXCOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foaieImportAndSortHereBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -97,6 +97,78 @@
             this.panel1.Size = new System.Drawing.Size(149, 555);
             this.panel1.TabIndex = 0;
             // 
+            // tbAge
+            // 
+            this.tbAge.Location = new System.Drawing.Point(12, 428);
+            this.tbAge.Name = "tbAge";
+            this.tbAge.Size = new System.Drawing.Size(120, 20);
+            this.tbAge.TabIndex = 2;
+            this.tbAge.Text = "age";
+            // 
+            // tbCol
+            // 
+            this.tbCol.Location = new System.Drawing.Point(12, 378);
+            this.tbCol.Name = "tbCol";
+            this.tbCol.Size = new System.Drawing.Size(120, 20);
+            this.tbCol.TabIndex = 2;
+            this.tbCol.Text = "col";
+            // 
+            // tbPrice
+            // 
+            this.tbPrice.Location = new System.Drawing.Point(12, 328);
+            this.tbPrice.Name = "tbPrice";
+            this.tbPrice.Size = new System.Drawing.Size(120, 20);
+            this.tbPrice.TabIndex = 2;
+            this.tbPrice.Text = "0";
+            // 
+            // tbQuant
+            // 
+            this.tbQuant.Location = new System.Drawing.Point(12, 278);
+            this.tbQuant.Name = "tbQuant";
+            this.tbQuant.Size = new System.Drawing.Size(120, 20);
+            this.tbQuant.TabIndex = 2;
+            this.tbQuant.Text = "0";
+            // 
+            // tbBoxNum
+            // 
+            this.tbBoxNum.Location = new System.Drawing.Point(12, 228);
+            this.tbBoxNum.Name = "tbBoxNum";
+            this.tbBoxNum.Size = new System.Drawing.Size(120, 20);
+            this.tbBoxNum.TabIndex = 2;
+            this.tbBoxNum.Text = "boxnum";
+            // 
+            // tbBoxCol
+            // 
+            this.tbBoxCol.Location = new System.Drawing.Point(12, 178);
+            this.tbBoxCol.Name = "tbBoxCol";
+            this.tbBoxCol.Size = new System.Drawing.Size(120, 20);
+            this.tbBoxCol.TabIndex = 2;
+            this.tbBoxCol.Text = "boxcol";
+            // 
+            // tbDesc
+            // 
+            this.tbDesc.Location = new System.Drawing.Point(12, 128);
+            this.tbDesc.Name = "tbDesc";
+            this.tbDesc.Size = new System.Drawing.Size(120, 20);
+            this.tbDesc.TabIndex = 2;
+            this.tbDesc.Text = "desc";
+            // 
+            // tbType
+            // 
+            this.tbType.Location = new System.Drawing.Point(12, 78);
+            this.tbType.Name = "tbType";
+            this.tbType.Size = new System.Drawing.Size(120, 20);
+            this.tbType.TabIndex = 2;
+            this.tbType.Text = "type";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(13, 29);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(120, 20);
+            this.tbName.TabIndex = 2;
+            this.tbName.Text = "name";
+            // 
             // bSearch
             // 
             this.bSearch.BackColor = System.Drawing.Color.White;
@@ -110,6 +182,7 @@
             this.bSearch.TabIndex = 1;
             this.bSearch.Text = "Search";
             this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // label8
             // 
@@ -226,130 +299,25 @@
             this.dgvFoaie.Size = new System.Drawing.Size(1059, 555);
             this.dgvFoaie.TabIndex = 1;
             // 
-            // tbName
+            // foaieImportAndSortHereBindingSource
             // 
-            this.tbName.Location = new System.Drawing.Point(13, 29);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(120, 20);
-            this.tbName.TabIndex = 2;
-            // 
-            // tbType
-            // 
-            this.tbType.Location = new System.Drawing.Point(12, 78);
-            this.tbType.Name = "tbType";
-            this.tbType.Size = new System.Drawing.Size(120, 20);
-            this.tbType.TabIndex = 2;
-            // 
-            // tbDesc
-            // 
-            this.tbDesc.Location = new System.Drawing.Point(12, 128);
-            this.tbDesc.Name = "tbDesc";
-            this.tbDesc.Size = new System.Drawing.Size(120, 20);
-            this.tbDesc.TabIndex = 2;
-            // 
-            // tbBoxCol
-            // 
-            this.tbBoxCol.Location = new System.Drawing.Point(12, 178);
-            this.tbBoxCol.Name = "tbBoxCol";
-            this.tbBoxCol.Size = new System.Drawing.Size(120, 20);
-            this.tbBoxCol.TabIndex = 2;
-            // 
-            // tbBoxNum
-            // 
-            this.tbBoxNum.Location = new System.Drawing.Point(12, 228);
-            this.tbBoxNum.Name = "tbBoxNum";
-            this.tbBoxNum.Size = new System.Drawing.Size(120, 20);
-            this.tbBoxNum.TabIndex = 2;
-            // 
-            // tbQuant
-            // 
-            this.tbQuant.Location = new System.Drawing.Point(12, 278);
-            this.tbQuant.Name = "tbQuant";
-            this.tbQuant.Size = new System.Drawing.Size(120, 20);
-            this.tbQuant.TabIndex = 2;
-            // 
-            // tbPrice
-            // 
-            this.tbPrice.Location = new System.Drawing.Point(12, 328);
-            this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(120, 20);
-            this.tbPrice.TabIndex = 2;
-            // 
-            // tbCol
-            // 
-            this.tbCol.Location = new System.Drawing.Point(12, 378);
-            this.tbCol.Name = "tbCol";
-            this.tbCol.Size = new System.Drawing.Size(120, 20);
-            this.tbCol.TabIndex = 2;
-            // 
-            // tbAge
-            // 
-            this.tbAge.Location = new System.Drawing.Point(12, 428);
-            this.tbAge.Name = "tbAge";
-            this.tbAge.Size = new System.Drawing.Size(120, 20);
-            this.tbAge.TabIndex = 2;
+            this.foaieImportAndSortHereBindingSource.DataMember = "Foaie - import and sort here";
+            this.foaieImportAndSortHereBindingSource.DataSource = this.dataDataSet;
             // 
             // dataDataSet
             // 
             this.dataDataSet.DataSetName = "dataDataSet";
             this.dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // foaieImportAndSortHereBindingSource
-            // 
-            this.foaieImportAndSortHereBindingSource.DataMember = "Foaie - import and sort here";
-            this.foaieImportAndSortHereBindingSource.DataSource = this.dataDataSet;
-            // 
             // foaie___import_and_sort_hereTableAdapter
             // 
             this.foaie___import_and_sort_hereTableAdapter.ClearBeforeFill = true;
             // 
-            // iDDataGridViewTextBoxColumn
+            // aGEDataGridViewTextBoxColumn
             // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // nAMEDataGridViewTextBoxColumn
-            // 
-            this.nAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME";
-            this.nAMEDataGridViewTextBoxColumn.HeaderText = "NAME";
-            this.nAMEDataGridViewTextBoxColumn.Name = "nAMEDataGridViewTextBoxColumn";
-            // 
-            // tYPEDataGridViewTextBoxColumn
-            // 
-            this.tYPEDataGridViewTextBoxColumn.DataPropertyName = "TYPE";
-            this.tYPEDataGridViewTextBoxColumn.HeaderText = "TYPE";
-            this.tYPEDataGridViewTextBoxColumn.Name = "tYPEDataGridViewTextBoxColumn";
-            // 
-            // dESCRIPTIONDataGridViewTextBoxColumn
-            // 
-            this.dESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPTION";
-            this.dESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "DESCRIPTION";
-            this.dESCRIPTIONDataGridViewTextBoxColumn.Name = "dESCRIPTIONDataGridViewTextBoxColumn";
-            // 
-            // bOXCOLORDataGridViewTextBoxColumn
-            // 
-            this.bOXCOLORDataGridViewTextBoxColumn.DataPropertyName = "BOX COLOR";
-            this.bOXCOLORDataGridViewTextBoxColumn.HeaderText = "BOX COLOR";
-            this.bOXCOLORDataGridViewTextBoxColumn.Name = "bOXCOLORDataGridViewTextBoxColumn";
-            // 
-            // bOXNUMBERDataGridViewTextBoxColumn
-            // 
-            this.bOXNUMBERDataGridViewTextBoxColumn.DataPropertyName = "BOX NUMBER";
-            this.bOXNUMBERDataGridViewTextBoxColumn.HeaderText = "BOX NUMBER";
-            this.bOXNUMBERDataGridViewTextBoxColumn.Name = "bOXNUMBERDataGridViewTextBoxColumn";
-            // 
-            // qUANTITYDataGridViewTextBoxColumn
-            // 
-            this.qUANTITYDataGridViewTextBoxColumn.DataPropertyName = "QUANTITY";
-            this.qUANTITYDataGridViewTextBoxColumn.HeaderText = "QUANTITY";
-            this.qUANTITYDataGridViewTextBoxColumn.Name = "qUANTITYDataGridViewTextBoxColumn";
-            // 
-            // pRICEDataGridViewTextBoxColumn
-            // 
-            this.pRICEDataGridViewTextBoxColumn.DataPropertyName = "PRICE";
-            this.pRICEDataGridViewTextBoxColumn.HeaderText = "PRICE";
-            this.pRICEDataGridViewTextBoxColumn.Name = "pRICEDataGridViewTextBoxColumn";
+            this.aGEDataGridViewTextBoxColumn.DataPropertyName = "AGE";
+            this.aGEDataGridViewTextBoxColumn.HeaderText = "AGE";
+            this.aGEDataGridViewTextBoxColumn.Name = "aGEDataGridViewTextBoxColumn";
             // 
             // cOLORDataGridViewTextBoxColumn
             // 
@@ -357,11 +325,53 @@
             this.cOLORDataGridViewTextBoxColumn.HeaderText = "COLOR";
             this.cOLORDataGridViewTextBoxColumn.Name = "cOLORDataGridViewTextBoxColumn";
             // 
-            // aGEDataGridViewTextBoxColumn
+            // pRICEDataGridViewTextBoxColumn
             // 
-            this.aGEDataGridViewTextBoxColumn.DataPropertyName = "AGE";
-            this.aGEDataGridViewTextBoxColumn.HeaderText = "AGE";
-            this.aGEDataGridViewTextBoxColumn.Name = "aGEDataGridViewTextBoxColumn";
+            this.pRICEDataGridViewTextBoxColumn.DataPropertyName = "PRICE";
+            this.pRICEDataGridViewTextBoxColumn.HeaderText = "PRICE";
+            this.pRICEDataGridViewTextBoxColumn.Name = "pRICEDataGridViewTextBoxColumn";
+            // 
+            // qUANTITYDataGridViewTextBoxColumn
+            // 
+            this.qUANTITYDataGridViewTextBoxColumn.DataPropertyName = "QUANTITY";
+            this.qUANTITYDataGridViewTextBoxColumn.HeaderText = "QUANTITY";
+            this.qUANTITYDataGridViewTextBoxColumn.Name = "qUANTITYDataGridViewTextBoxColumn";
+            // 
+            // bOXNUMBERDataGridViewTextBoxColumn
+            // 
+            this.bOXNUMBERDataGridViewTextBoxColumn.DataPropertyName = "BOX NUMBER";
+            this.bOXNUMBERDataGridViewTextBoxColumn.HeaderText = "BOX NUMBER";
+            this.bOXNUMBERDataGridViewTextBoxColumn.Name = "bOXNUMBERDataGridViewTextBoxColumn";
+            // 
+            // bOXCOLORDataGridViewTextBoxColumn
+            // 
+            this.bOXCOLORDataGridViewTextBoxColumn.DataPropertyName = "BOX COLOR";
+            this.bOXCOLORDataGridViewTextBoxColumn.HeaderText = "BOX COLOR";
+            this.bOXCOLORDataGridViewTextBoxColumn.Name = "bOXCOLORDataGridViewTextBoxColumn";
+            // 
+            // dESCRIPTIONDataGridViewTextBoxColumn
+            // 
+            this.dESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPTION";
+            this.dESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "DESCRIPTION";
+            this.dESCRIPTIONDataGridViewTextBoxColumn.Name = "dESCRIPTIONDataGridViewTextBoxColumn";
+            // 
+            // tYPEDataGridViewTextBoxColumn
+            // 
+            this.tYPEDataGridViewTextBoxColumn.DataPropertyName = "TYPE";
+            this.tYPEDataGridViewTextBoxColumn.HeaderText = "TYPE";
+            this.tYPEDataGridViewTextBoxColumn.Name = "tYPEDataGridViewTextBoxColumn";
+            // 
+            // nAMEDataGridViewTextBoxColumn
+            // 
+            this.nAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.HeaderText = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.Name = "nAMEDataGridViewTextBoxColumn";
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             // 
             // formStorageApp
             // 
@@ -380,8 +390,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foaieImportAndSortHereBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
