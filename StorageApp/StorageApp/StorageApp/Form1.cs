@@ -28,16 +28,16 @@ namespace StorageApp
             dgvFoaie.Columns[8].Name = "COL";
             dgvFoaie.Columns[9].Name = "AGE";
         }
-        DataSet ds = new DataSet();
+        BindingSource bs = new BindingSource();
 
         //variables for searching
         string name = "placehold";
         string type = "placehold";
         string desc = "placehold";
         string boxCol = "placehold";
-        string boxNum = "placehold";
-        int quant = Convert.ToInt32(1);
-        int price = Convert.ToInt32(1);
+        decimal boxNum = 0;
+        decimal quant = 0;
+        decimal price = 0;
         string col = "placehold";
         string age = "placehold";
 
@@ -45,35 +45,221 @@ namespace StorageApp
         {
             //data import in dgvFoaie
             this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
-
-            //default textboxes values imported from the first row
-            tbName.Text = dgvFoaie.Rows[0].Cells[1].Value.ToString();   //NAME
-            tbType.Text = dgvFoaie.Rows[0].Cells[2].Value.ToString();   //TYPE 
-            tbDesc.Text = dgvFoaie.Rows[0].Cells[3].Value.ToString();   //DESC
-            tbBoxCol.Text = dgvFoaie.Rows[0].Cells[4].Value.ToString(); //BOXCOL
-            tbBoxNum.Text = dgvFoaie.Rows[0].Cells[5].Value.ToString(); //BOXNUM
-            tbQuant.Text = dgvFoaie.Rows[0].Cells[6].Value.ToString();  //QUANT
-            tbPrice.Text = dgvFoaie.Rows[0].Cells[7].Value.ToString();  //PRICE
-            tbCol.Text = dgvFoaie.Rows[0].Cells[8].Value.ToString();    //COL
-            tbAge.Text = dgvFoaie.Rows[0].Cells[9].Value.ToString();    //AGE
-
-            
+            bs.DataSource = dgvFoaie.DataSource;
         }
 
-        private void bSearch_Click(object sender, EventArgs e)
+        private void tbName_TextChanged(object sender, EventArgs e)
         {
-            //variables for searching
             name = tbName.Text;
+            if(name == "")
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (dgvFoaie.Rows[u].Cells[1].Value.ToString() == name)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                } 
+            }
+        }
+
+        private void tbType_TextChanged(object sender, EventArgs e)
+        {
             type = tbType.Text;
+            if (type == "")
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (dgvFoaie.Rows[u].Cells[2].Value.ToString() == type)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void tbDesc_TextChanged(object sender, EventArgs e)
+        {
             desc = tbDesc.Text;
+            if (desc == "")
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (dgvFoaie.Rows[u].Cells[2].Value.ToString() == desc)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void tbBoxCol_TextChanged(object sender, EventArgs e)
+        {
             boxCol = tbBoxCol.Text;
-            boxNum = tbBoxNum.Text;
-            quant = Convert.ToInt32(tbQuant.Text);
-            price = Convert.ToInt32(tbPrice.Text);
+            if (boxCol == "")
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (dgvFoaie.Rows[u].Cells[4].Value.ToString() == boxCol)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                }
+            }
+        }
+        private void nudBoxNum_ValueChanged(object sender, EventArgs e)
+        {
+            boxNum = nudBoxNum.Value;
+            if (boxNum == 0)
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (Convert.ToDecimal(dgvFoaie.Rows[u].Cells[5].Value) == boxNum)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                }
+            }
+        }
+        private void nudQuant_ValueChanged(object sender, EventArgs e)
+        {
+            quant = nudQuant.Value;
+            if (quant == 0)
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (Convert.ToDecimal(dgvFoaie.Rows[u].Cells[6].Value) == quant)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void nudPrice_ValueChanged(object sender, EventArgs e)
+        {
+            price = nudPrice.Value;
+            if (price == 0)
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (Convert.ToDecimal(dgvFoaie.Rows[u].Cells[7].Value) == price)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void tbCol_TextChanged(object sender, EventArgs e)
+        {
             col = tbCol.Text;
+            if (col == "")
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (dgvFoaie.Rows[u].Cells[8].Value.ToString() == col)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void tbAge_TextChanged(object sender, EventArgs e)
+        {
             age = tbAge.Text;
-
-
+            if (age == "")
+            {
+                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            }
+            else
+            {
+                for (int u = 0; u < dgvFoaie.RowCount; u++)
+                {
+                    if (dgvFoaie.Rows[u].Cells[9].Value.ToString() == age)
+                    {
+                        dgvFoaie.Rows[u].Visible = true;
+                    }
+                    else
+                    {
+                        dgvFoaie.CurrentCell = null;
+                        dgvFoaie.Rows[u].Visible = false;
+                    }
+                }
+            }
         }
     }
 }
