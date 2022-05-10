@@ -50,6 +50,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvFoaie = new System.Windows.Forms.DataGridView();
+            this.dataDataSet = new StorageApp.dataDataSet();
+            this.dataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foaieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foaieTableAdapter = new StorageApp.dataDataSetTableAdapters.FoaieTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,16 +64,14 @@
             this.pRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aGEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.foaieImportAndSortHereBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataDataSet = new StorageApp.dataDataSet();
-            this.foaie___import_and_sort_hereTableAdapter = new StorageApp.dataDataSetTableAdapters.Foaie___import_and_sort_hereTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBoxNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foaieImportAndSortHereBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -301,13 +303,32 @@
             this.pRICEDataGridViewTextBoxColumn,
             this.cOLORDataGridViewTextBoxColumn,
             this.aGEDataGridViewTextBoxColumn});
-            this.dgvFoaie.DataSource = this.foaieImportAndSortHereBindingSource;
+            this.dgvFoaie.DataSource = this.foaieBindingSource;
             this.dgvFoaie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFoaie.GridColor = System.Drawing.Color.LightSkyBlue;
             this.dgvFoaie.Location = new System.Drawing.Point(149, 0);
             this.dgvFoaie.Name = "dgvFoaie";
             this.dgvFoaie.Size = new System.Drawing.Size(1059, 555);
             this.dgvFoaie.TabIndex = 1;
+            // 
+            // dataDataSet
+            // 
+            this.dataDataSet.DataSetName = "dataDataSet";
+            this.dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataDataSetBindingSource
+            // 
+            this.dataDataSetBindingSource.DataSource = this.dataDataSet;
+            this.dataDataSetBindingSource.Position = 0;
+            // 
+            // foaieBindingSource
+            // 
+            this.foaieBindingSource.DataMember = "Foaie";
+            this.foaieBindingSource.DataSource = this.dataDataSet;
+            // 
+            // foaieTableAdapter
+            // 
+            this.foaieTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -369,20 +390,6 @@
             this.aGEDataGridViewTextBoxColumn.HeaderText = "AGE";
             this.aGEDataGridViewTextBoxColumn.Name = "aGEDataGridViewTextBoxColumn";
             // 
-            // foaieImportAndSortHereBindingSource
-            // 
-            this.foaieImportAndSortHereBindingSource.DataMember = "Foaie - import and sort here";
-            this.foaieImportAndSortHereBindingSource.DataSource = this.dataDataSet;
-            // 
-            // dataDataSet
-            // 
-            this.dataDataSet.DataSetName = "dataDataSet";
-            this.dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // foaie___import_and_sort_hereTableAdapter
-            // 
-            this.foaie___import_and_sort_hereTableAdapter.ClearBeforeFill = true;
-            // 
             // formStorageApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,8 +410,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudBoxNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foaieImportAndSortHereBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,9 +437,13 @@
         private System.Windows.Forms.TextBox tbDesc;
         private System.Windows.Forms.TextBox tbType;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.NumericUpDown nudPrice;
+        private System.Windows.Forms.NumericUpDown nudQuant;
+        private System.Windows.Forms.NumericUpDown nudBoxNum;
+        private System.Windows.Forms.BindingSource dataDataSetBindingSource;
         private dataDataSet dataDataSet;
-        private System.Windows.Forms.BindingSource foaieImportAndSortHereBindingSource;
-        private dataDataSetTableAdapters.Foaie___import_and_sort_hereTableAdapter foaie___import_and_sort_hereTableAdapter;
+        private System.Windows.Forms.BindingSource foaieBindingSource;
+        private dataDataSetTableAdapters.FoaieTableAdapter foaieTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tYPEDataGridViewTextBoxColumn;
@@ -442,9 +454,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pRICEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cOLORDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aGEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.NumericUpDown nudPrice;
-        private System.Windows.Forms.NumericUpDown nudQuant;
-        private System.Windows.Forms.NumericUpDown nudBoxNum;
     }
 }
 

@@ -57,8 +57,10 @@ namespace StorageApp
 
         private void formStorageApp_Load(object sender, EventArgs e)
         {
+            
             //data import in dgvFoaie
-            this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+            this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+            
             bs.DataSource = dgvFoaie.DataSource;
         }
 
@@ -67,7 +69,7 @@ namespace StorageApp
             name = tbName.Text;
             if(name == "")
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -91,7 +93,7 @@ namespace StorageApp
             type = tbType.Text;
             if (type == "")
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -115,7 +117,7 @@ namespace StorageApp
             desc = tbDesc.Text;
             if (desc == "")
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -139,7 +141,7 @@ namespace StorageApp
             boxCol = tbBoxCol.Text;
             if (boxCol == "")
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -162,7 +164,7 @@ namespace StorageApp
             boxNum = nudBoxNum.Value;
             if (boxNum == 0)
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -185,7 +187,7 @@ namespace StorageApp
             quant = nudQuant.Value;
             if (quant == 0)
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -209,7 +211,7 @@ namespace StorageApp
             price = nudPrice.Value;
             if (price == 0)
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -233,7 +235,7 @@ namespace StorageApp
             col = tbCol.Text;
             if (col == "")
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -257,7 +259,7 @@ namespace StorageApp
             age = tbAge.Text;
             if (age == "")
             {
-                this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
             }
             else
             {
@@ -282,16 +284,16 @@ namespace StorageApp
         private void add(string name, string type, string desc, string boxcol, decimal boxnum, decimal quant, decimal price, string color, string age)
         {
             //SQL STMT
-            const string sql = "INSERT INTO foaie___import_and_sort_here([NAME],[TYPE],[DESC],[BOXCOL],[BOXNUM],[QUANT],[PRICE],[COLOR],[AGE]) VALUES(@NAME,@TYPE,@DESC,@BOXCOL,@BOXNUM,@QUANT,@PRICE,@COLOR,@AGE)";
+            const string sql = "INSERT INTO foaie([NAME],[TYPE],[DESCRIPTION],[BOX_COLOR],[BOX_NUMBER],[QUANTITY],[PRICE],[COLOR],[AGE]) VALUES(@NAME,@TYPE,@DESCRIPTION,@BOX_COLOR,@BOX_NUMBER,@QUANTITY,@PRICE,@COLOR,@AGE)";
             cmd = new OleDbCommand(sql, con);
 
             //ADD PARAMS
             cmd.Parameters.AddWithValue("@NAME", name);
             cmd.Parameters.AddWithValue("@TYPE", type);
-            cmd.Parameters.AddWithValue("@DESC", desc);
-            cmd.Parameters.AddWithValue("@BOXCOL", boxcol);
-            cmd.Parameters.AddWithValue("@BOXNUM", boxnum);
-            cmd.Parameters.AddWithValue("@QUANT", quant);
+            cmd.Parameters.AddWithValue("@DESCRIPTION", desc);
+            cmd.Parameters.AddWithValue("@BOX_COLOR", boxcol);
+            cmd.Parameters.AddWithValue("@BOX_NUMBER", boxnum);
+            cmd.Parameters.AddWithValue("@QUANTITY", quant);
             cmd.Parameters.AddWithValue("@PRICE", price);
             cmd.Parameters.AddWithValue("@COLOR", color);
             cmd.Parameters.AddWithValue("@AGE", age);
@@ -325,9 +327,9 @@ namespace StorageApp
 
         private void retrieve()
         {
-            dgvFoaie.Rows.Clear();
+            dt.Rows.Clear();
             //SQL STATEMENT
-            String sql = "SELECT * FROM spacecraftsTB ";
+            String sql = "SELECT * FROM foaie";
             cmd = new OleDbCommand(sql, con);
             try
             {
@@ -352,7 +354,8 @@ namespace StorageApp
         }
         private void populate(int id, string name, string type, string desc, string boxCol, decimal boxNum, decimal quant, decimal price, string color, string age)
         {
-            dgvFoaie.Rows.Add(id, name, type, desc, boxCol, boxNum, quant, price, color, age);
+            dt.Rows.Add(id, name, type, desc, boxCol, boxNum, quant, price, color, age);
+            dgvFoaie.DataSource = dt;
         }
 
         private void bAdd_Click(object sender, EventArgs e)
