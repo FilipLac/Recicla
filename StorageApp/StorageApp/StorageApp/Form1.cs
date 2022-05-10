@@ -36,7 +36,7 @@ namespace StorageApp
         }
 
         //Database tools
-        private const string conString = "Provider=Microsoft.Jet.OLEDB.12.0;Data Source=../data.accdb";
+        private const string conString = "Provider=Microsoft.ACE.OLEDB.12.0 ;Data Source=data.accdb";
         readonly OleDbConnection con = new OleDbConnection(conString);
         OleDbCommand cmd;
         OleDbDataAdapter adapter;
@@ -279,10 +279,10 @@ namespace StorageApp
         //----------------//
         //  Database Add  //
         //----------------//
-        private void add(string name, string type, string desc, string boxcol, string boxnum, string quant, string price, string color, string age)
+        private void add(string name, string type, string desc, string boxcol, decimal boxnum, decimal quant, decimal price, string color, string age)
         {
             //SQL STMT
-            const string sql = "INSERT INTO foaie___import_and_sort_here(NAME,TYPE,DESC,BOXCOL,BOXNUM,QUANT,PRICE,COLOR,AGE) VALUES(@NAME,@TYPE,@DESC,@BOXCOL,@BOXNUM,@QUANT,@PRICE,@COLOR,@AGE)";
+            const string sql = "INSERT INTO foaie___import_and_sort_here([NAME],[TYPE],[DESC],[BOXCOL],[BOXNUM],[QUANT],[PRICE],[COLOR],[AGE]) VALUES(@NAME,@TYPE,@DESC,@BOXCOL,@BOXNUM,@QUANT,@PRICE,@COLOR,@AGE)";
             cmd = new OleDbCommand(sql, con);
 
             //ADD PARAMS
@@ -302,8 +302,16 @@ namespace StorageApp
                 con.Open();
                 if (cmd.ExecuteNonQuery() > 0)
                 {
-                    clearTxts();
-                    MessageBox.Show(@"Successfully Inserted");
+                    tbName.Clear();
+                    tbType.Clear();
+                    tbDesc.Clear();
+                    tbBoxCol.Clear();
+                    nudBoxNum.Value = 0;
+                    nudPrice.Value = 0;
+                    nudQuant.Value = 0;
+                    tbCol.Clear();
+                    tbAge.Clear();
+;                   MessageBox.Show(@"Successfully Inserted");
                 }
                 con.Close();
                 retrieve();
@@ -313,6 +321,43 @@ namespace StorageApp
                 MessageBox.Show(ex.Message);
                 con.Close();
             }
+        }
+
+        private void retrieve()
+        {
+            dgvFoaie.Rows.Clear();
+            //SQL STATEMENT
+            String sql = "SELECT * FROM spacecraftsTB ";
+            cmd = new OleDbCommand(sql, con);
+            try
+            {
+                con.Open();
+                adapter = new OleDbDataAdapter(cmd);
+                adapter.Fill(dt);
+                //LOOP THROUGH DATATABLE
+                foreach (DataRow row in dt.Rows)
+                {
+                    populate(Convert.ToInt32(row[0]), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), Convert.ToDecimal(row[5]), Convert.ToDecimal(row[6]), Convert.ToDecimal(row[7]), row[8].ToString(), row[9].ToString() );         
+                }
+
+                con.Close();
+                //CLEAR DATATABLE
+                dt.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                con.Close();
+            }
+        }
+        private void populate(int id, string name, string type, string desc, string boxCol, decimal boxNum, decimal quant, decimal price, string color, string age)
+        {
+            dgvFoaie.Rows.Add(id, name, type, desc, boxCol, boxNum, quant, price, color, age);
+        }
+
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            add(tbName.Text, tbType.Text, tbDesc.Text, tbBoxCol.Text, nudBoxNum.Value, nudQuant.Value, nudPrice.Value, tbCol.Text, tbAge.Text);
         }
     }
 }
