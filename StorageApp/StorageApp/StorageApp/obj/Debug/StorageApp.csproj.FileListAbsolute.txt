@@ -10,3 +10,15 @@ C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\o
 C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.exe
 C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.pdb
 C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\bin\Debug\data.accdb
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\bin\Debug\data.accdb
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\bin\Debug\StorageApp.exe.config
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\bin\Debug\StorageApp.exe
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\bin\Debug\StorageApp.pdb
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.csproj.AssemblyReference.cache
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.formStorageApp.resources
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.Properties.Resources.resources
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.csproj.GenerateResource.cache
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.csproj.CoreCompileInputs.cache
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.exe
+C:\Users\Filip\Documents\GitHub\Recicla\StorageApp\StorageApp\StorageApp\obj\Debug\StorageApp.pdb

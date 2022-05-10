@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.OleDb;
 using System.Windows.Forms;
+    
+    //unused - remove if grayed out before final build
+    using System.Linq;
+    using System.Text;
+    using System.ComponentModel;
+    using System.Threading.Tasks;
+    using System.Collections.Generic;
 
 namespace StorageApp
 {
@@ -16,8 +18,8 @@ namespace StorageApp
         {
             InitializeComponent();
 
-            //dgv column names
 
+        //dgv column names
             dgvFoaie.Columns[1].Name = "NAME";
             dgvFoaie.Columns[2].Name = "TYPE";
             dgvFoaie.Columns[3].Name = "DESC";
@@ -27,7 +29,19 @@ namespace StorageApp
             dgvFoaie.Columns[7].Name = "PRICE";
             dgvFoaie.Columns[8].Name = "COL";
             dgvFoaie.Columns[9].Name = "AGE";
+
+        //Selection
+            dgvFoaie.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFoaie.MultiSelect = false;
         }
+
+        //Database tools
+        private const string conString = "Provider=Microsoft.Jet.OLEDB.12.0;Data Source=../data.accdb";
+        readonly OleDbConnection con = new OleDbConnection(conString);
+        OleDbCommand cmd;
+        OleDbDataAdapter adapter;
+        readonly DataTable dt = new DataTable();
+        
         BindingSource bs = new BindingSource();
 
         //variables for searching
@@ -259,6 +273,39 @@ namespace StorageApp
                         dgvFoaie.Rows[u].Visible = false;
                     }
                 }
+            }
+        }
+
+        //----------------//
+        //  Database Add  //
+        //----------------//
+        private void add(string name, string propellant, string destination)
+        {
+            //SQL STMT
+            const string sql = "INSERT INTO spacecraftsTB(S_Name,S_Propellant,S_Destination) VALUES(@NAME,@PROPELLANT,@DESTINATION)";
+            cmd = new OleDbCommand(sql, con);
+
+            //ADD PARAMS
+            cmd.Parameters.AddWithValue("@NAME", name);
+            cmd.Parameters.AddWithValue("@PROPELLANT", propellant);
+            cmd.Parameters.AddWithValue("@DESTINATION", destination);
+
+            //OPEN CON AND EXEC INSERT
+            try
+            {
+                con.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    clearTxts();
+                    MessageBox.Show(@"Successfully Inserted");
+                }
+                con.Close();
+                retrieve();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                con.Close();
             }
         }
     }
