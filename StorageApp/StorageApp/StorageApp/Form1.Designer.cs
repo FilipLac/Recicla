@@ -189,8 +189,9 @@
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(149, 53);
             this.bAdd.TabIndex = 1;
-            this.bAdd.Text = "Search";
+            this.bAdd.Text = "Add";
             this.bAdd.UseVisualStyleBackColor = false;
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
             // label8
             // 
