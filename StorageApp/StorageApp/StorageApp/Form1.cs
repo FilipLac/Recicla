@@ -279,16 +279,22 @@ namespace StorageApp
         //----------------//
         //  Database Add  //
         //----------------//
-        private void add(string name, string propellant, string destination)
+        private void add(string name, string type, string desc, string boxcol, string boxnum, string quant, string price, string color, string age)
         {
             //SQL STMT
-            const string sql = "INSERT INTO spacecraftsTB(S_Name,S_Propellant,S_Destination) VALUES(@NAME,@PROPELLANT,@DESTINATION)";
+            const string sql = "INSERT INTO foaie___import_and_sort_here(NAME,TYPE,DESC,BOXCOL,BOXNUM,QUANT,PRICE,COLOR,AGE) VALUES(@NAME,@TYPE,@DESC,@BOXCOL,@BOXNUM,@QUANT,@PRICE,@COLOR,@AGE)";
             cmd = new OleDbCommand(sql, con);
 
             //ADD PARAMS
             cmd.Parameters.AddWithValue("@NAME", name);
-            cmd.Parameters.AddWithValue("@PROPELLANT", propellant);
-            cmd.Parameters.AddWithValue("@DESTINATION", destination);
+            cmd.Parameters.AddWithValue("@TYPE", type);
+            cmd.Parameters.AddWithValue("@DESC", desc);
+            cmd.Parameters.AddWithValue("@BOXCOL", boxcol);
+            cmd.Parameters.AddWithValue("@BOXNUM", boxnum);
+            cmd.Parameters.AddWithValue("@QUANT", quant);
+            cmd.Parameters.AddWithValue("@PRICE", price);
+            cmd.Parameters.AddWithValue("@COLOR", color);
+            cmd.Parameters.AddWithValue("@AGE", age);
 
             //OPEN CON AND EXEC INSERT
             try
