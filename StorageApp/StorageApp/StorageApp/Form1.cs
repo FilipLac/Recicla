@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using System.IO;
     
     //unused - remove if grayed out before final build
     using System.Linq;
@@ -34,14 +35,10 @@ namespace StorageApp
             dgvFoaie.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvFoaie.MultiSelect = false;
         }
-
-        //Database tools
-        private const string conString = "Provider=Microsoft.ACE.OLEDB.12.0 ;Data Source=data.accdb";
-        readonly OleDbConnection con = new OleDbConnection(conString);
-        OleDbCommand cmd;
-        OleDbDataAdapter adapter;
-        readonly DataTable dt = new DataTable();
         
+
+
+
         BindingSource bs = new BindingSource();
 
         //variables for searching
@@ -62,6 +59,7 @@ namespace StorageApp
             this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             
             bs.DataSource = dgvFoaie.DataSource;
+
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)
@@ -123,7 +121,7 @@ namespace StorageApp
             {
                 for (int u = 0; u < dgvFoaie.RowCount; u++)
                 {
-                    if (dgvFoaie.Rows[u].Cells[2].Value.ToString() == desc)
+                    if (dgvFoaie.Rows[u].Cells[3].Value.ToString() == desc)
                     {
                         dgvFoaie.Rows[u].Visible = true;
                     }
@@ -141,20 +139,28 @@ namespace StorageApp
             boxCol = tbBoxCol.Text;
             if (boxCol == "")
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
                 for (int u = 0; u < dgvFoaie.RowCount; u++)
                 {
-                    if (dgvFoaie.Rows[u].Cells[4].Value.ToString() == boxCol)
+                    try
                     {
-                        dgvFoaie.Rows[u].Visible = true;
+                        if (dgvFoaie.Rows[u].Cells[4].Value.ToString() == boxCol)
+                        {
+                            dgvFoaie.Rows[u].Visible = true;
+                        }
+                        else
+                        {
+                            dgvFoaie.CurrentCell = null;
+                            dgvFoaie.Rows[u].Visible = false;
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        dgvFoaie.CurrentCell = null;
-                        dgvFoaie.Rows[u].Visible = false;
+                        MessageBox.Show(ex.ToString());
+                        throw;
                     }
                 }
             }
@@ -278,89 +284,36 @@ namespace StorageApp
             }
         }
 
-        //----------------//
-        //  Database Add  //
-        //----------------//
-        private void add(string name, string type, string desc, string boxcol, decimal boxnum, decimal quant, decimal price, string color, string age)
-        {
-            //SQL STMT
-            const string sql = "INSERT INTO foaie([NAME],[TYPE],[DESCRIPTION],[BOX_COLOR],[BOX_NUMBER],[QUANTITY],[PRICE],[COLOR],[AGE]) VALUES(@NAME,@TYPE,@DESCRIPTION,@BOX_COLOR,@BOX_NUMBER,@QUANTITY,@PRICE,@COLOR,@AGE)";
-            cmd = new OleDbCommand(sql, con);
 
-            //ADD PARAMS
-            cmd.Parameters.AddWithValue("@NAME", name);
-            cmd.Parameters.AddWithValue("@TYPE", type);
-            cmd.Parameters.AddWithValue("@DESCRIPTION", desc);
-            cmd.Parameters.AddWithValue("@BOX_COLOR", boxcol);
-            cmd.Parameters.AddWithValue("@BOX_NUMBER", boxnum);
-            cmd.Parameters.AddWithValue("@QUANTITY", quant);
-            cmd.Parameters.AddWithValue("@PRICE", price);
-            cmd.Parameters.AddWithValue("@COLOR", color);
-            cmd.Parameters.AddWithValue("@AGE", age);
-
-            //OPEN CON AND EXEC INSERT
-            try
-            {
-                con.Open();
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    tbName.Clear();
-                    tbType.Clear();
-                    tbDesc.Clear();
-                    tbBoxCol.Clear();
-                    nudBoxNum.Value = 0;
-                    nudPrice.Value = 0;
-                    nudQuant.Value = 0;
-                    tbCol.Clear();
-                    tbAge.Clear();
-;                   MessageBox.Show(@"Successfully Inserted");
-                }
-                con.Close();
-                retrieve();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                con.Close();
-            }
-        }
-
-        private void retrieve()
-        {
-            dt.Rows.Clear();
-            //SQL STATEMENT
-            String sql = "SELECT * FROM foaie";
-            cmd = new OleDbCommand(sql, con);
-            try
-            {
-                con.Open();
-                adapter = new OleDbDataAdapter(cmd);
-                adapter.Fill(dt);
-                //LOOP THROUGH DATATABLE
-                foreach (DataRow row in dt.Rows)
-                {
-                    populate(Convert.ToInt32(row[0]), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), Convert.ToDecimal(row[5]), Convert.ToDecimal(row[6]), Convert.ToDecimal(row[7]), row[8].ToString(), row[9].ToString() );         
-                }
-
-                con.Close();
-                //CLEAR DATATABLE
-                dt.Rows.Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                con.Close();
-            }
-        }
-        private void populate(int id, string name, string type, string desc, string boxCol, decimal boxNum, decimal quant, decimal price, string color, string age)
-        {
-            dt.Rows.Add(id, name, type, desc, boxCol, boxNum, quant, price, color, age);
-            dgvFoaie.DataSource = dt;
-        }
-
+      
         private void bAdd_Click(object sender, EventArgs e)
         {
-            add(tbName.Text, tbType.Text, tbDesc.Text, tbBoxCol.Text, nudBoxNum.Value, nudQuant.Value, nudPrice.Value, tbCol.Text, tbAge.Text);
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
+
+            try
+            {
+                conn.Open();
+                string my_querry = "INSERT INTO foaie([NAME], [TYPE], [DESCRIPTION], [BOX_COLOR], [BOX_NUMBER], [QUANTITY], [PRICE], [COLOR], [AGE]) VALUES('" + tbName.Text + "','" + tbType.Text + "','" + tbDesc.Text + "','" + tbBoxCol.Text + "','" + nudBoxNum.Value + "','" + nudQuant.Value + "','" + nudPrice.Value + "','" + tbCol.Text + "','" + tbAge.Text + "')";
+
+                OleDbCommand cmd = new OleDbCommand(my_querry, conn);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Data saved successfuly...!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed due to: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                File.Delete("../../data.accdb");
+                File.Copy("data.accdb", "../../data.accdb");
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+                
+            }
         }
     }
 }

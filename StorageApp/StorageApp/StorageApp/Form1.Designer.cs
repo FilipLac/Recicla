@@ -50,16 +50,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvFoaie = new System.Windows.Forms.DataGridView();
+            this.foaieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataDataSet = new StorageApp.dataDataSet();
             this.dataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.foaieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.foaieTableAdapter = new StorageApp.dataDataSetTableAdapters.FoaieTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bOXCOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bOXNUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qUANTITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,9 +69,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudBoxNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -297,19 +297,25 @@
             this.nAMEDataGridViewTextBoxColumn,
             this.tYPEDataGridViewTextBoxColumn,
             this.dESCRIPTIONDataGridViewTextBoxColumn,
-            this.bOXCOLORDataGridViewTextBoxColumn,
-            this.bOXNUMBERDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
             this.qUANTITYDataGridViewTextBoxColumn,
             this.pRICEDataGridViewTextBoxColumn,
             this.cOLORDataGridViewTextBoxColumn,
             this.aGEDataGridViewTextBoxColumn});
-            this.dgvFoaie.DataSource = this.foaieBindingSource;
+            this.dgvFoaie.DataMember = "Foaie";
+            this.dgvFoaie.DataSource = this.dataDataSet;
             this.dgvFoaie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFoaie.GridColor = System.Drawing.Color.LightSkyBlue;
             this.dgvFoaie.Location = new System.Drawing.Point(149, 0);
             this.dgvFoaie.Name = "dgvFoaie";
             this.dgvFoaie.Size = new System.Drawing.Size(1059, 555);
             this.dgvFoaie.TabIndex = 1;
+            // 
+            // foaieBindingSource
+            // 
+            this.foaieBindingSource.DataMember = "Foaie";
+            this.foaieBindingSource.DataSource = this.dataDataSet;
             // 
             // dataDataSet
             // 
@@ -320,11 +326,6 @@
             // 
             this.dataDataSetBindingSource.DataSource = this.dataDataSet;
             this.dataDataSetBindingSource.Position = 0;
-            // 
-            // foaieBindingSource
-            // 
-            this.foaieBindingSource.DataMember = "Foaie";
-            this.foaieBindingSource.DataSource = this.dataDataSet;
             // 
             // foaieTableAdapter
             // 
@@ -354,17 +355,17 @@
             this.dESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "DESCRIPTION";
             this.dESCRIPTIONDataGridViewTextBoxColumn.Name = "dESCRIPTIONDataGridViewTextBoxColumn";
             // 
-            // bOXCOLORDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.bOXCOLORDataGridViewTextBoxColumn.DataPropertyName = "BOX COLOR";
-            this.bOXCOLORDataGridViewTextBoxColumn.HeaderText = "BOX COLOR";
-            this.bOXCOLORDataGridViewTextBoxColumn.Name = "bOXCOLORDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "BOX_COLOR";
+            this.dataGridViewTextBoxColumn1.HeaderText = "BOX_COLOR";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // bOXNUMBERDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.bOXNUMBERDataGridViewTextBoxColumn.DataPropertyName = "BOX NUMBER";
-            this.bOXNUMBERDataGridViewTextBoxColumn.HeaderText = "BOX NUMBER";
-            this.bOXNUMBERDataGridViewTextBoxColumn.Name = "bOXNUMBERDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "BOX_NUMBER";
+            this.dataGridViewTextBoxColumn2.HeaderText = "BOX_NUMBER";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // qUANTITYDataGridViewTextBoxColumn
             // 
@@ -410,9 +411,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudBoxNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,12 +445,14 @@
         private dataDataSet dataDataSet;
         private System.Windows.Forms.BindingSource foaieBindingSource;
         private dataDataSetTableAdapters.FoaieTableAdapter foaieTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bOXCOLORDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bOXNUMBERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tYPEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPTIONDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bOXCOLORDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bOXNUMBERDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn qUANTITYDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRICEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cOLORDataGridViewTextBoxColumn;
