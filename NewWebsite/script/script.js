@@ -4,7 +4,7 @@ function translation() {
     document.getElementById("contact").innerText = "Contato";
     document.getElementById("hours").innerText = "Horário de funcionamento";
     document.getElementById("text1").innerText = "Dispomos de um Serviço de apoio técnico e também de um serviço externo, incluindo o esclarecimento."
-    document.getElementById("text2").innerText = "Procuramos servir todos os tipos de empresas e também partuculares que tenham a visão de reaproveitar o que muitos apelidaram de lixo informático."
+    document.getElementById("text2").innerText = "Procuramos servir todos os tipos de empresas e também particulares que tenham a visão de reaproveitar o que muitos apelidaram de lixo informático."
     document.getElementById("checkout").innerText = "Confira nossa página do Facebook!"
     document.getElementById("title").innerText = "Fotos da empresa"
     document.getElementById("title2").innerText = "Contatos e endereço"
