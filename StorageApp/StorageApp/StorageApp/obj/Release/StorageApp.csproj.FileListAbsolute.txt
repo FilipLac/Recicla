@@ -1,0 +1,12 @@
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\bin\Release\data.accdb
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\bin\Release\StorageApp.exe.config
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\bin\Release\StorageApp.exe
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\bin\Release\StorageApp.pdb
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Release\StorageApp.csproj.AssemblyReference.cache
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Release\StorageApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Release\StorageApp.formStorageApp.resources
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Release\StorageApp.Properties.Resources.resources
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Release\StorageApp.csproj.GenerateResource.cache
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Release\StorageApp.csproj.CoreCompileInputs.cache
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Release\StorageApp.exe
+C:\Users\Michal Adam\Desktop\database\Recicla\StorageApp\StorageApp\StorageApp\obj\Release\StorageApp.pdb

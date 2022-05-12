@@ -46,6 +46,7 @@ namespace StorageApp
         decimal price = 0;
         string col = "placehold";
         string age = "placehold";
+        //string creators = "Michal Adam, Filip Lacina";
 
         private void formStorageApp_Load(object sender, EventArgs e)
         {
