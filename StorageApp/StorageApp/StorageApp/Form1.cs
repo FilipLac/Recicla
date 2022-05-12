@@ -1,15 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
-using System.IO;
-    
-    //unused - remove if grayed out before final build
-    using System.Linq;
-    using System.Text;
-    using System.ComponentModel;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace StorageApp
 {
