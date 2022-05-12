@@ -50,10 +50,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvFoaie = new System.Windows.Forms.DataGridView();
-            this.foaieBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataDataSet = new StorageApp.dataDataSet();
-            this.dataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.foaieTableAdapter = new StorageApp.dataDataSetTableAdapters.FoaieTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,19 +60,25 @@
             this.pRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOLORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aGEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataSet = new StorageApp.dataDataSet();
+            this.foaieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foaieTableAdapter = new StorageApp.dataDataSetTableAdapters.FoaieTableAdapter();
+            this.bDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBoxNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.bDelete);
             this.panel1.Controls.Add(this.nudPrice);
             this.panel1.Controls.Add(this.nudBoxNum);
             this.panel1.Controls.Add(this.nudQuant);
@@ -187,9 +189,9 @@
             this.bAdd.FlatAppearance.BorderSize = 0;
             this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bAdd.Location = new System.Drawing.Point(0, 502);
+            this.bAdd.Location = new System.Drawing.Point(0, 519);
             this.bAdd.Name = "bAdd";
-            this.bAdd.Size = new System.Drawing.Size(149, 53);
+            this.bAdd.Size = new System.Drawing.Size(149, 36);
             this.bAdd.TabIndex = 1;
             this.bAdd.Text = "Add";
             this.bAdd.UseVisualStyleBackColor = false;
@@ -312,25 +314,6 @@
             this.dgvFoaie.Size = new System.Drawing.Size(1059, 555);
             this.dgvFoaie.TabIndex = 1;
             // 
-            // foaieBindingSource
-            // 
-            this.foaieBindingSource.DataMember = "Foaie";
-            this.foaieBindingSource.DataSource = this.dataDataSet;
-            // 
-            // dataDataSet
-            // 
-            this.dataDataSet.DataSetName = "dataDataSet";
-            this.dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataDataSetBindingSource
-            // 
-            this.dataDataSetBindingSource.DataSource = this.dataDataSet;
-            this.dataDataSetBindingSource.Position = 0;
-            // 
-            // foaieTableAdapter
-            // 
-            this.foaieTableAdapter.ClearBeforeFill = true;
-            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -391,6 +374,40 @@
             this.aGEDataGridViewTextBoxColumn.HeaderText = "AGE";
             this.aGEDataGridViewTextBoxColumn.Name = "aGEDataGridViewTextBoxColumn";
             // 
+            // dataDataSet
+            // 
+            this.dataDataSet.DataSetName = "dataDataSet";
+            this.dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // foaieBindingSource
+            // 
+            this.foaieBindingSource.DataMember = "Foaie";
+            this.foaieBindingSource.DataSource = this.dataDataSet;
+            // 
+            // dataDataSetBindingSource
+            // 
+            this.dataDataSetBindingSource.DataSource = this.dataDataSet;
+            this.dataDataSetBindingSource.Position = 0;
+            // 
+            // foaieTableAdapter
+            // 
+            this.foaieTableAdapter.ClearBeforeFill = true;
+            // 
+            // bDelete
+            // 
+            this.bDelete.BackColor = System.Drawing.Color.White;
+            this.bDelete.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bDelete.FlatAppearance.BorderSize = 0;
+            this.bDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bDelete.Location = new System.Drawing.Point(0, 483);
+            this.bDelete.Name = "bDelete";
+            this.bDelete.Size = new System.Drawing.Size(149, 36);
+            this.bDelete.TabIndex = 4;
+            this.bDelete.Text = "Delete";
+            this.bDelete.UseVisualStyleBackColor = false;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
+            // 
             // formStorageApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,8 +428,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudBoxNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoaie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foaieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -457,6 +474,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pRICEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cOLORDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aGEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button bDelete;
     }
 }
 

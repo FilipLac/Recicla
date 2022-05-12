@@ -59,7 +59,7 @@ namespace StorageApp
             this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             
             bs.DataSource = dgvFoaie.DataSource;
-
+            dgvFoaie.Sort(dgvFoaie.Columns[0], ListSortDirection.Ascending);
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace StorageApp
             name = tbName.Text;
             if(name == "")
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
@@ -91,7 +91,7 @@ namespace StorageApp
             type = tbType.Text;
             if (type == "")
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
@@ -115,7 +115,7 @@ namespace StorageApp
             desc = tbDesc.Text;
             if (desc == "")
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
@@ -170,7 +170,7 @@ namespace StorageApp
             boxNum = nudBoxNum.Value;
             if (boxNum == 0)
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
@@ -193,7 +193,7 @@ namespace StorageApp
             quant = nudQuant.Value;
             if (quant == 0)
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
@@ -217,7 +217,7 @@ namespace StorageApp
             price = nudPrice.Value;
             if (price == 0)
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
@@ -241,7 +241,7 @@ namespace StorageApp
             col = tbCol.Text;
             if (col == "")
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
@@ -265,7 +265,7 @@ namespace StorageApp
             age = tbAge.Text;
             if (age == "")
             {
-                //this.foaie___import_and_sort_hereTableAdapter.Fill(this.dataDataSet._Foaie___import_and_sort_here);
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
             else
             {
@@ -313,6 +313,38 @@ namespace StorageApp
                 File.Copy("data.accdb", "../../data.accdb");
                 this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
                 
+            }
+        }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
+            
+            MessageBox.Show(dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value.ToString());
+
+            try
+            {
+                conn.Open();
+                string my_querry = "DELETE FROM foaie WHERE [ID]=" + dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value + "";
+
+                OleDbCommand cmd = new OleDbCommand(my_querry, conn);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Data deleted successfuly...!");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed due to: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                File.Delete("../../data.accdb");
+                File.Copy("data.accdb", "../../data.accdb");
+                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+
             }
         }
     }
