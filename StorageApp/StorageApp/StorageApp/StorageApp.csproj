@@ -54,6 +54,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dataFunction.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

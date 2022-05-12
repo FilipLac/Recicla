@@ -28,10 +28,11 @@ namespace StorageApp
 
         //Selection
             dgvFoaie.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvFoaie.MultiSelect = false;
+            //dgvFoaie.MultiSelect = false;
         }
 
         BindingSource bs = new BindingSource();
+        dataFunction data = new dataFunction();
 
         //variables for searching
         string name = "placehold";
@@ -61,69 +62,26 @@ namespace StorageApp
         //Clean
         private void clean()
         {
+            //Variable reset
             name = "placehold";
-            tbName.Text = "";
             type = "placehold";
-            tbType.Text = "";
             desc = "placehold";
-            tbDesc.Text = "";
             boxCol = "placehold";
-            tbBoxCol.Text = "";
             boxNum = 0;
-            nudBoxNum.Value = 0;
             quant = 0;
-            nudQuant.Value = 0;
             price = 0;
-            nudPrice.Value = 0;
             col = "placehold";
-            tbCol.Text = "";
             age = "placehold";
-            tbAge.Text = "";
-        }
-
-        //Check
-        private bool defaultCheck()
-        {
-            if (tbName.Text == "placehold" || tbName.Text == "" || tbName.Text == null)
-            {
-                return false;
-            }
-            else if (tbType.Text == "placehold" || tbType.Text == "" || tbType.Text == null)
-            {
-                return false;
-            }
-            else if (tbDesc.Text == "placehold" || tbDesc.Text == "" || tbDesc.Text == null)
-            {
-                return false;
-            }
-            else if (tbBoxCol.Text == "placehold" || tbBoxCol.Text == "" || tbBoxCol.Text == null)
-            {
-                return false;
-            }
-            else if (tbCol.Text == "placehold" || tbCol.Text == "" || tbCol.Text == null)
-            {
-                return false;
-            }
-            else if (tbAge.Text == "placehold" || tbAge.Text == "" || tbAge.Text == null)
-            {
-                return false;
-            }
-            else if (nudBoxNum.Value == 0)
-            {
-                return false;
-            }
-            else if (nudPrice.Value == 0)
-            {
-                return false;
-            }
-            else if (nudQuant.Value == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            //Field reset
+            tbName.Clear();
+            tbType.Clear();
+            tbDesc.Clear();
+            tbBoxCol.Clear();
+            nudBoxNum.Value = 0;
+            nudQuant.Value = 0;
+            nudPrice.Value = 0;
+            tbCol.Clear();
+            tbAge.Clear();
         }
 
         private void formStorageApp_Load(object sender, EventArgs e)
@@ -363,8 +321,7 @@ namespace StorageApp
         private void bAdd_Click(object sender, EventArgs e)
         {
             insert();
-            bool checkresult = defaultCheck();
-            if (checkresult)
+            if (data.defaultCheck(tbName.Text, tbType.Text, tbDesc.Text, tbBoxCol.Text, tbCol.Text, tbAge.Text, nudBoxNum.Value, nudPrice.Value, nudQuant.Value))
             {
                 System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
                 conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
@@ -391,7 +348,7 @@ namespace StorageApp
             }
             else
             {
-                MessageBox.Show("Null value cannot be inserted, please try again!" + checkresult, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Null value cannot be inserted, please try again!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

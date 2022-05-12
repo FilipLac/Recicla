@@ -327,6 +327,9 @@
             this.dgvFoaie.Location = new System.Drawing.Point(149, 0);
             this.dgvFoaie.Name = "dgvFoaie";
             this.dgvFoaie.RowHeadersWidth = 47;
+            this.dgvFoaie.RowTemplate.Height = 25;
+            this.dgvFoaie.RowTemplate.ReadOnly = true;
+            this.dgvFoaie.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFoaie.Size = new System.Drawing.Size(1059, 555);
             this.dgvFoaie.TabIndex = 1;
             this.dgvFoaie.TabStop = false;
