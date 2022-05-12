@@ -1,11 +1,4 @@
 # Recicla
-Website for erasmus project - Recicla PC
 
-Please fork this repo and then submit a pull request :)
-
-Some basic Git commands are:
-```
-git pull -- download repo to your machine (clone updates)
-git add -- add changes for commit
-git commit -- comment changes and prepaire them for push
-git push -- upload changes to github
+This Github site was created for making collaboration with our group easier.
+Also, if anyone from our group or chief of Recicla PC needs something from this project it is easily downloadable.
