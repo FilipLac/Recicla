@@ -46,7 +46,6 @@ namespace StorageApp
         decimal price = 0;
         string col = "placehold";
         string age = "placehold";
-        //string creators = "Michal Adam, Filip Lacina";
 
         private void formStorageApp_Load(object sender, EventArgs e)
         {
@@ -155,12 +154,13 @@ namespace StorageApp
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString());
+                        MessageBox.Show(ex.ToString(), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         throw;
                     }
                 }
             }
         }
+
         private void nudBoxNum_ValueChanged(object sender, EventArgs e)
         {
             boxNum = nudBoxNum.Value;
@@ -184,6 +184,7 @@ namespace StorageApp
                 }
             }
         }
+
         private void nudQuant_ValueChanged(object sender, EventArgs e)
         {
             quant = nudQuant.Value;
@@ -279,28 +280,22 @@ namespace StorageApp
                 }
             }
         }
-
-
       
         private void bAdd_Click(object sender, EventArgs e)
         {
             System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
-
             try
             {
                 conn.Open();
                 string my_querry = "INSERT INTO foaie([NAME], [TYPE], [DESCRIPTION], [BOX_COLOR], [BOX_NUMBER], [QUANTITY], [PRICE], [COLOR], [AGE]) VALUES('" + tbName.Text + "','" + tbType.Text + "','" + tbDesc.Text + "','" + tbBoxCol.Text + "','" + nudBoxNum.Value + "','" + nudQuant.Value + "','" + nudPrice.Value + "','" + tbCol.Text + "','" + tbAge.Text + "')";
-
                 OleDbCommand cmd = new OleDbCommand(my_querry, conn);
                 cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Data saved successfuly...!");
-
+                MessageBox.Show("Data saved successfuly...!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed due to: " + ex.Message);
+                MessageBox.Show("Failed due to: " + ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
@@ -308,39 +303,39 @@ namespace StorageApp
                 File.Delete("../../data.accdb");
                 File.Copy("data.accdb", "../../data.accdb");
                 this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-                
             }
         }
 
         private void bDelete_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
-            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
-            
-            MessageBox.Show(dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value.ToString());
-
-            try
+            if (MessageBox.Show("Confirm deletion of item: " + dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value.ToString(), "Cell deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                conn.Open();
-                string my_querry = "DELETE FROM foaie WHERE [ID]=" + dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value + "";
+                System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+                conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
+                    try
+                    {
+                        conn.Open();
+                        string my_querry = "DELETE FROM foaie WHERE [ID]=" + dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value + "";
+                        OleDbCommand cmd = new OleDbCommand(my_querry, conn);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data deleted successfuly...!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                OleDbCommand cmd = new OleDbCommand(my_querry, conn);
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Data deleted successfuly...!");
-
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed due to: " + ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                        File.Delete("../../data.accdb");
+                        File.Copy("data.accdb", "../../data.accdb");
+                        this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+                    } 
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Failed due to: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-                File.Delete("../../data.accdb");
-                File.Copy("data.accdb", "../../data.accdb");
-                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-
+                MessageBox.Show("Deletion of item was aborted", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
