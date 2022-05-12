@@ -30,9 +30,6 @@ namespace StorageApp
             dgvFoaie.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvFoaie.MultiSelect = false;
         }
-        
-
-
 
         BindingSource bs = new BindingSource();
 
@@ -46,6 +43,88 @@ namespace StorageApp
         decimal price = 0;
         string col = "placehold";
         string age = "placehold";
+
+        //Insert
+        private void insert()
+        {
+            name = tbName.Text;
+            type = tbType.Text;
+            desc = tbDesc.Text;
+            boxCol = tbBoxCol.Text;
+            boxNum = nudBoxNum.Value;
+            quant = nudQuant.Value;
+            price = nudPrice.Value;
+            col = tbCol.Text;
+            age = tbAge.Text;
+        }
+
+        //Clean
+        private void clean()
+        {
+            name = "placehold";
+            tbName.Text = "";
+            type = "placehold";
+            tbType.Text = "";
+            desc = "placehold";
+            tbDesc.Text = "";
+            boxCol = "placehold";
+            tbBoxCol.Text = "";
+            boxNum = 0;
+            nudBoxNum.Value = 0;
+            quant = 0;
+            nudQuant.Value = 0;
+            price = 0;
+            nudPrice.Value = 0;
+            col = "placehold";
+            tbCol.Text = "";
+            age = "placehold";
+            tbAge.Text = "";
+        }
+
+        //Check
+        private bool defaultCheck()
+        {
+            if (tbName.Text == "placehold" || tbName.Text == "" || tbName.Text == null)
+            {
+                return false;
+            }
+            else if (tbType.Text == "placehold" || tbType.Text == "" || tbType.Text == null)
+            {
+                return false;
+            }
+            else if (tbDesc.Text == "placehold" || tbDesc.Text == "" || tbDesc.Text == null)
+            {
+                return false;
+            }
+            else if (tbBoxCol.Text == "placehold" || tbBoxCol.Text == "" || tbBoxCol.Text == null)
+            {
+                return false;
+            }
+            else if (tbCol.Text == "placehold" || tbCol.Text == "" || tbCol.Text == null)
+            {
+                return false;
+            }
+            else if (tbAge.Text == "placehold" || tbAge.Text == "" || tbAge.Text == null)
+            {
+                return false;
+            }
+            else if (nudBoxNum.Value == 0)
+            {
+                return false;
+            }
+            else if (nudPrice.Value == 0)
+            {
+                return false;
+            }
+            else if (nudQuant.Value == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         private void formStorageApp_Load(object sender, EventArgs e)
         {
@@ -283,26 +362,36 @@ namespace StorageApp
       
         private void bAdd_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
-            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
-            try
+            insert();
+            bool checkresult = defaultCheck();
+            if (checkresult)
             {
-                conn.Open();
-                string my_querry = "INSERT INTO foaie([NAME], [TYPE], [DESCRIPTION], [BOX_COLOR], [BOX_NUMBER], [QUANTITY], [PRICE], [COLOR], [AGE]) VALUES('" + tbName.Text + "','" + tbType.Text + "','" + tbDesc.Text + "','" + tbBoxCol.Text + "','" + nudBoxNum.Value + "','" + nudQuant.Value + "','" + nudPrice.Value + "','" + tbCol.Text + "','" + tbAge.Text + "')";
-                OleDbCommand cmd = new OleDbCommand(my_querry, conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Data saved successfuly...!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+                conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
+                try
+                {
+                    conn.Open();
+                    string my_querry = "INSERT INTO foaie([NAME], [TYPE], [DESCRIPTION], [BOX_COLOR], [BOX_NUMBER], [QUANTITY], [PRICE], [COLOR], [AGE]) VALUES('" + tbName.Text + "','" + tbType.Text + "','" + tbDesc.Text + "','" + tbBoxCol.Text + "','" + nudBoxNum.Value + "','" + nudQuant.Value + "','" + nudPrice.Value + "','" + tbCol.Text + "','" + tbAge.Text + "')";
+                    OleDbCommand cmd = new OleDbCommand(my_querry, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Data saved successfuly...!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed due to: " + ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                finally
+                {
+                    conn.Close();
+                    File.Delete("../../data.accdb");
+                    File.Copy("data.accdb", "../../data.accdb");
+                    this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+                } 
+                clean();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Failed due to: " + ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            finally
-            {
-                conn.Close();
-                File.Delete("../../data.accdb");
-                File.Copy("data.accdb", "../../data.accdb");
-                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+                MessageBox.Show("Null value cannot be inserted, please try again!" + checkresult, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
