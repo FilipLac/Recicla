@@ -29,6 +29,9 @@ namespace StorageApp
         //Selection
             dgvFoaie.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //dgvFoaie.MultiSelect = false;
+
+            //"FIX" of faulty ID assignment
+            dgvFoaie.Columns[0].Visible = false;
         }
 
         BindingSource bs = new BindingSource();
@@ -44,6 +47,7 @@ namespace StorageApp
         decimal price = 0;
         string col = "placehold";
         string age = "placehold";
+
 
         //Insert
         private void insert()
@@ -84,6 +88,7 @@ namespace StorageApp
             tbAge.Clear();
         }
 
+
         private void formStorageApp_Load(object sender, EventArgs e)
         {
             
@@ -97,7 +102,7 @@ namespace StorageApp
         private void tbName_TextChanged(object sender, EventArgs e)
         {
             name = tbName.Text;
-            if(name == "")
+            if (name == "")
             {
                 this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
             }
@@ -114,7 +119,7 @@ namespace StorageApp
                         dgvFoaie.CurrentCell = null;
                         dgvFoaie.Rows[u].Visible = false;
                     }
-                } 
+                }
             }
         }
 
@@ -323,7 +328,7 @@ namespace StorageApp
             insert();
             if (data.defaultCheck(tbName.Text, tbType.Text, tbDesc.Text, tbBoxCol.Text, tbCol.Text, tbAge.Text, nudBoxNum.Value, nudPrice.Value, nudQuant.Value))
             {
-                System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+                OleDbConnection conn = new OleDbConnection();
                 conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
                 try
                 {
@@ -354,30 +359,30 @@ namespace StorageApp
 
         private void bDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Confirm deletion of item: " + dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value.ToString(), "Cell deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Confirm deletion of item: " + dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[1].Value.ToString(), "Cell deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
                 conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data source=data.accdb";
-                    try
-                    {
-                        conn.Open();
-                        string my_querry = "DELETE FROM foaie WHERE [ID]=" + dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value + "";
-                        OleDbCommand cmd = new OleDbCommand(my_querry, conn);
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Data deleted successfuly...!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    conn.Open();
+                    string my_querry = "DELETE FROM foaie WHERE [ID]=" + dgvFoaie.Rows[dgvFoaie.CurrentCell.RowIndex].Cells[0].Value + "";
+                    OleDbCommand cmd = new OleDbCommand(my_querry, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Data deleted successfuly...!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Failed due to: " + ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    finally
-                    {
-                        conn.Close();
-                        File.Delete("../../data.accdb");
-                        File.Copy("data.accdb", "../../data.accdb");
-                        this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-                    } 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed due to: " + ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                finally
+                {
+                    conn.Close();
+                    File.Delete("../../data.accdb");
+                    File.Copy("data.accdb", "../../data.accdb");
+                     this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+                } 
             }
             else
             {

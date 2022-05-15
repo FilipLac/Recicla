@@ -330,7 +330,7 @@
             this.dgvFoaie.RowTemplate.Height = 25;
             this.dgvFoaie.RowTemplate.ReadOnly = true;
             this.dgvFoaie.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFoaie.Size = new System.Drawing.Size(1059, 555);
+            this.dgvFoaie.Size = new System.Drawing.Size(1100, 555);
             this.dgvFoaie.TabIndex = 1;
             this.dgvFoaie.TabStop = false;
             // 
@@ -438,7 +438,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1208, 555);
+            this.ClientSize = new System.Drawing.Size(1249, 555);
             this.Controls.Add(this.dgvFoaie);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
