@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace StorageApp
 {
@@ -32,8 +33,8 @@ namespace StorageApp
 
             //"FIX" of faulty ID assignment
             dgvFoaie.Columns[0].Visible = false;
-        }
 
+        }
         BindingSource bs = new BindingSource();
         dataFunction data = new dataFunction();
 
@@ -94,113 +95,122 @@ namespace StorageApp
             
             //data import in dgvFoaie
             this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-            
+
             bs.DataSource = dgvFoaie.DataSource;
             dgvFoaie.Sort(dgvFoaie.Columns[0], ListSortDirection.Ascending);
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)
         {
-            name = tbName.Text;
-            if (name == "")
-            {
-                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-            }
-            else
-            {
-                for (int u = 0; u < dgvFoaie.RowCount; u++)
-                {
-                    if (dgvFoaie.Rows[u].Cells[1].Value.ToString() == name)
-                    {
-                        dgvFoaie.Rows[u].Visible = true;
-                    }
-                    else
-                    {
-                        dgvFoaie.CurrentCell = null;
-                        dgvFoaie.Rows[u].Visible = false;
-                    }
-                }
-            }
+            
+            //name = tbName.Text;
+            //if (name == "")
+            //{
+            //    this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+            //}
+            //else
+            //{
+            //    for (int u = 0; u < dgvFoaie.RowCount; u++)
+            //    {
+            //        if (dgvFoaie.Rows[u].Cells[1].Value.ToString() == name)
+            //        {
+            //            dgvFoaie.Rows[u].Visible = true;
+            //        }
+            //        else
+            //        {
+            //            dgvFoaie.CurrentCell = null;
+            //            dgvFoaie.Rows[u].Visible = false;
+            //        }
+            //    }
+            //}
+            foaieBindingSource.Filter = "NAME LIKE '%" + tbName.Text + "%'";
+            dgvFoaie.DataSource = foaieBindingSource;
         }
 
         private void tbType_TextChanged(object sender, EventArgs e)
         {
-            type = tbType.Text;
-            if (type == "")
-            {
-                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-            }
-            else
-            {
-                for (int u = 0; u < dgvFoaie.RowCount; u++)
-                {
-                    if (dgvFoaie.Rows[u].Cells[2].Value.ToString() == type)
-                    {
-                        dgvFoaie.Rows[u].Visible = true;
-                    }
-                    else
-                    {
-                        dgvFoaie.CurrentCell = null;
-                        dgvFoaie.Rows[u].Visible = false;
-                    }
-                }
-            }
+            //type = tbType.Text;
+            //if (type == "")
+            //{
+            //    this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+            //}
+            //else
+            //{
+            //    for (int u = 0; u < dgvFoaie.RowCount; u++)
+            //    {
+            //        if (dgvFoaie.Rows[u].Cells[2].Value.ToString() == type)
+            //        {
+            //            dgvFoaie.Rows[u].Visible = true;
+            //        }
+            //        else
+            //        {
+            //            dgvFoaie.CurrentCell = null;
+            //            dgvFoaie.Rows[u].Visible = false;
+            //        }
+            //    }
+            //}
+            foaieBindingSource.Filter = "TYPE LIKE '%" + tbType.Text + "%'";
+            dgvFoaie.DataSource = foaieBindingSource;
         }
 
         private void tbDesc_TextChanged(object sender, EventArgs e)
         {
-            desc = tbDesc.Text;
-            if (desc == "")
-            {
-                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-            }
-            else
-            {
-                for (int u = 0; u < dgvFoaie.RowCount; u++)
-                {
-                    if (dgvFoaie.Rows[u].Cells[3].Value.ToString() == desc)
-                    {
-                        dgvFoaie.Rows[u].Visible = true;
-                    }
-                    else
-                    {
-                        dgvFoaie.CurrentCell = null;
-                        dgvFoaie.Rows[u].Visible = false;
-                    }
-                }
-            }
+            //desc = tbDesc.Text;
+            //if (desc == "")
+            //{
+            //    this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+            //}
+            //else
+            //{
+            //    for (int u = 0; u < dgvFoaie.RowCount; u++)
+            //    {
+            //        if (dgvFoaie.Rows[u].Cells[3].Value.ToString() == desc)
+            //        {
+            //            dgvFoaie.Rows[u].Visible = true;
+            //        }
+            //        else
+            //        {
+            //            dgvFoaie.CurrentCell = null;
+            //            dgvFoaie.Rows[u].Visible = false;
+            //        }
+            //    }
+            //}
+            foaieBindingSource.Filter = "DESCRIPTION LIKE '%" + tbDesc.Text + "%'";
+            dgvFoaie.DataSource = foaieBindingSource;
         }
 
         private void tbBoxCol_TextChanged(object sender, EventArgs e)
         {
-            boxCol = tbBoxCol.Text;
-            if (boxCol == "")
-            {
-                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-            }
-            else
-            {
-                for (int u = 0; u < dgvFoaie.RowCount; u++)
-                {
-                    try
-                    {
-                        if (dgvFoaie.Rows[u].Cells[4].Value.ToString() == boxCol)
-                        {
-                            dgvFoaie.Rows[u].Visible = true;
-                        }
-                        else
-                        {
-                            dgvFoaie.CurrentCell = null;
-                            dgvFoaie.Rows[u].Visible = false;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString(), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        throw;
-                    }
-                }
-            }
+            //boxCol = tbBoxCol.Text;
+            //if (boxCol == "")
+            //{
+            //    this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+            //}
+            //else
+            //{
+            //    for (int u = 0; u < dgvFoaie.RowCount; u++)
+            //    {
+            //        try
+            //        {
+            //            if (dgvFoaie.Rows[u].Cells[4].Value.ToString() == boxCol)
+            //            {
+            //                dgvFoaie.Rows[u].Visible = true;
+            //            }
+            //            else
+            //            {
+            //                dgvFoaie.CurrentCell = null;
+            //                dgvFoaie.Rows[u].Visible = false;
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            MessageBox.Show(ex.ToString(), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            throw;
+            //        }
+            //    }
+            //}
+            foaieBindingSource.Filter = "BOX_COLOR LIKE '%" + tbBoxCol.Text + "%'";
+            dgvFoaie.DataSource = foaieBindingSource;
         }
 
         private void nudBoxNum_ValueChanged(object sender, EventArgs e)
@@ -277,50 +287,54 @@ namespace StorageApp
 
         private void tbCol_TextChanged(object sender, EventArgs e)
         {
-            col = tbCol.Text;
-            if (col == "")
-            {
-                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-            }
-            else
-            {
-                for (int u = 0; u < dgvFoaie.RowCount; u++)
-                {
-                    if (dgvFoaie.Rows[u].Cells[8].Value.ToString() == col)
-                    {
-                        dgvFoaie.Rows[u].Visible = true;
-                    }
-                    else
-                    {
-                        dgvFoaie.CurrentCell = null;
-                        dgvFoaie.Rows[u].Visible = false;
-                    }
-                }
-            }
+            //col = tbCol.Text;
+            //if (col == "")
+            //{
+            //    this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+            //}
+            //else
+            //{
+            //    for (int u = 0; u < dgvFoaie.RowCount; u++)
+            //    {
+            //        if (dgvFoaie.Rows[u].Cells[8].Value.ToString() == col)
+            //        {
+            //            dgvFoaie.Rows[u].Visible = true;
+            //        }
+            //        else
+            //        {
+            //            dgvFoaie.CurrentCell = null;
+            //            dgvFoaie.Rows[u].Visible = false;
+            //        }
+            //    }
+            //}
+            foaieBindingSource.Filter = "COLOR LIKE '%" + tbCol.Text + "%'";
+            dgvFoaie.DataSource = foaieBindingSource;
         }
 
         private void tbAge_TextChanged(object sender, EventArgs e)
         {
-            age = tbAge.Text;
-            if (age == "")
-            {
-                this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
-            }
-            else
-            {
-                for (int u = 0; u < dgvFoaie.RowCount; u++)
-                {
-                    if (dgvFoaie.Rows[u].Cells[9].Value.ToString() == age)
-                    {
-                        dgvFoaie.Rows[u].Visible = true;
-                    }
-                    else
-                    {
-                        dgvFoaie.CurrentCell = null;
-                        dgvFoaie.Rows[u].Visible = false;
-                    }
-                }
-            }
+            //age = tbAge.Text;
+            //if (age == "")
+            //{
+            //    this.foaieTableAdapter.Fill(this.dataDataSet.Foaie);
+            //}
+            //else
+            //{
+            //    for (int u = 0; u < dgvFoaie.RowCount; u++)
+            //    {
+            //        if (dgvFoaie.Rows[u].Cells[9].Value.ToString() == age)
+            //        {
+            //            dgvFoaie.Rows[u].Visible = true;
+            //        }
+            //        else
+            //        {
+            //            dgvFoaie.CurrentCell = null;
+            //            dgvFoaie.Rows[u].Visible = false;
+            //        }
+            //    }
+            //}
+            foaieBindingSource.Filter = "AGE LIKE '%" + tbAge.Text + "%'";
+            dgvFoaie.DataSource = foaieBindingSource;
         }
       
         private void bAdd_Click(object sender, EventArgs e)

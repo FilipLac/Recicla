@@ -145,7 +145,6 @@
             // 
             // tbAge
             // 
-            this.tbAge.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbAge.Location = new System.Drawing.Point(12, 428);
             this.tbAge.Name = "tbAge";
             this.tbAge.Size = new System.Drawing.Size(120, 20);
@@ -154,7 +153,6 @@
             // 
             // tbCol
             // 
-            this.tbCol.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbCol.Location = new System.Drawing.Point(12, 378);
             this.tbCol.Name = "tbCol";
             this.tbCol.Size = new System.Drawing.Size(120, 20);
@@ -163,7 +161,6 @@
             // 
             // tbBoxCol
             // 
-            this.tbBoxCol.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbBoxCol.Location = new System.Drawing.Point(12, 178);
             this.tbBoxCol.Name = "tbBoxCol";
             this.tbBoxCol.Size = new System.Drawing.Size(120, 20);
@@ -172,7 +169,6 @@
             // 
             // tbDesc
             // 
-            this.tbDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbDesc.Location = new System.Drawing.Point(12, 128);
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(120, 20);
@@ -181,7 +177,6 @@
             // 
             // tbType
             // 
-            this.tbType.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbType.Location = new System.Drawing.Point(12, 78);
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(120, 20);
@@ -190,7 +185,6 @@
             // 
             // tbName
             // 
-            this.tbName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbName.Location = new System.Drawing.Point(13, 29);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(120, 20);
